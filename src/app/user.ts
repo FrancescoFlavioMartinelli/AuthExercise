@@ -8,13 +8,14 @@ export interface UserSignup {
     name:string
 }
 
+export interface AuthResponse {
+    accessToken:string,
+    user: AuthUser
+}
+
 export interface AuthUser {
     id:number,
     email:string,
     name:string
 }
 
-export interface AuthResponse {
-    accessToken:string,
-    user: AuthUser
-}

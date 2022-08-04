@@ -14,6 +14,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     if(this.authSrv.isAuth()) return true
     return this.router.createUrlTree(['/login'])
   }
+  
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

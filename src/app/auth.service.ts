@@ -28,7 +28,8 @@ export class AuthService {
   helper = new JwtHelperService()
 
   //OBSERVABLE AUTH
-  authSub = new Subject< false | AuthUser >();
+  authSub = new BehaviorSubject< false | AuthUser >(false);
+  // authSub = new Subject<false|AuthUser>();
   authObs = this.authSub.asObservable();
 
   constructor(private http: HttpClient) {
@@ -62,8 +63,12 @@ export class AuthService {
   isAuth(): boolean {
     let t = localStorage.getItem("token")
     if (t) {
-      this.logout()
-      return !this.helper.isTokenExpired(t)
+      // this.logout()
+      if(this.helper.isTokenExpired(t)){
+        this.logout()
+      } else {
+        return true
+      }
     }
     return false
   }

@@ -34,15 +34,15 @@ export class PostCardComponent implements OnInit {
     //   console.log("card", res);
     //   this.logged = res ? true : false
     // })
-
-    this.subPost = this.postSrv.postObs.subscribe((res)=>{
-      this.post = res.find((e)=>e.id==this.post.id)!
-    })
+    
+    // this.subPost = this.postSrv.postObs.subscribe((res)=>{
+    //   this.post = res.find((e)=>e.id==this.post.id)!
+    // })
   }
 
   ngOnDestroy() {
     // this.sub.unsubscribe()
-    this.subPost.unsubscribe()
+    // this.subPost.unsubscribe()
   }
 
   like() {

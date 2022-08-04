@@ -19,18 +19,39 @@ export class HomeComponent implements OnInit {
 
   logged = false
 
+  lastLike:false|Post = false
+
+
+  lastLikeTimeout:any
+
   constructor(private postSrv:PostService, private auth:AuthService) { }
 
   ngOnInit(): void {
     this.subPost = this.postSrv.postObs.subscribe((res)=>{
+      console.log("NEXT POST ARRAY", res);
+      
       this.posts = res
     })
 
     this.sub = this.auth.authObs.subscribe((res)=>{
+      console.log("INIT HOME")
       this.logged = res ? true : false
     })
 
-    this.postSrv.getPosts()
+
+    this.postSrv.lastLikeObs.subscribe((res)=>{
+      this.lastLike = res
+      clearTimeout(this.lastLikeTimeout)
+      this.lastLikeTimeout = setTimeout(()=>{this.lastLike = false}, 5000)
+    })
+
+    // if(this.postSrv.posts.length == 0) {
+    //   this.postSrv.getPosts()
+    // } else {
+    //   this.posts = this.postSrv.posts
+    // }
+
+
   }
 
   ngOnDestroy(): void {

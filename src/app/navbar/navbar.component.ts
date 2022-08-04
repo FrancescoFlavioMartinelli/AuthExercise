@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Post } from '../post';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,14 +12,24 @@ export class NavbarComponent implements OnInit {
 
   logged = false;
 
-  constructor(private auth:AuthService) { }
+  name = "Effettua il login"
+
+
+  constructor(private auth:AuthService, private postSrv:PostService) { }
 
   ngOnInit(): void {
     this.auth.authObs.subscribe((res)=>{
       if(res){
-        this.logged = true}
-      else{this.logged = false}
+        this.logged = true
+        this.name = res.name
+      }
+      else{
+        this.logged = false
+        this.name = "Effettua il login"
+      }
     })
+
+
   }
 
   logout(){

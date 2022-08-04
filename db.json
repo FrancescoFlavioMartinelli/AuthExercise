@@ -5,13 +5,19 @@
       "password": "$2a$10$PV85VOLXp2qYoxpFpAPqeum9eF9dtMFEkYFJUZUQ7ghacwavbbrOm",
       "name": "Test",
       "id": 1
+    },
+    {
+      "email": "test@mail.it",
+      "password": "$2a$10$QM9uI8oFvFTsnTf06YNwXe1H9gHHADz8HJ7iTJcfiT3zhYIcxByzC",
+      "name": "Prova",
+      "id": 2
     }
   ],
   "posts": [
     {
       "id": 0,
-      "title": "titolo1",
-      "likes": 9
+      "title": "titole2",
+      "likes": 23
     }
   ]
 }

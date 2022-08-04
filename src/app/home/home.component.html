@@ -1,1 +1,5 @@
+
+        <li class="nav-item" *ngIf="lastLike">
+            Messo like a {{lastLike.id}}
+          </li>
 <app-post-card *ngFor="let p of posts" [logged]="logged" [post]="p"></app-post-card>

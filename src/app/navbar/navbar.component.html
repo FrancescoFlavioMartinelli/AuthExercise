@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">{{name}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,20 +9,27 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" [routerLink]="['/']" routerLinkActive="active">Home</a>
+          <a class="nav-link" aria-current="page" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" [routerLink]="['/profile']" routerLinkActive="active" [ngClass]="{'disabled': !logged}">Profilo</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" aria-current="page" [routerLink]="['/auth']" routerLinkActive="active" *ngIf="!logged">Auth</a>
+        </li>
+        <!-- <li class="nav-item">
           <a class="nav-link" aria-current="page" [routerLink]="['/signup']" routerLinkActive="active" *ngIf="!logged">Signup</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!logged">Login</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" (click)="logout()" *ngIf="logged">Logout</a>
+          <a class="btn btn-danger" aria-current="page" (click)="logout()" *ngIf="logged">Logout</a>
         </li>
+
+        <a [routerLink]="['/auth', 'login']" class="btn btn-primary">Login</a>
+<a [routerLink]="['/auth', 'singup']" class="btn btn-success">Signup</a>
+
 
       </ul>
     </div>
