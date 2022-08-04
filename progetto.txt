@@ -1,0 +1,29 @@
+SITO POST CON AUTH
+
+- nella home visualiziamo una lista di PostCards
+- le postCards mostrano i dati sempre ma le interazioni Elimina/Like sono abilitate solo agli utenti autenticati
+
+- Pagine login e signup
+- Pagina profilo accessibile solo se autenticati (dati sensibili)
+
+- Auto logout quando ci si slogga
+- * Auto logout quando scade il token
+- * Auto login quando torniamo alla pagina
+
+FILE USATI:
+-Pagine
+Home
+Login
+Signup
+Profilo
+
+-Altri componenti
+PostCard
+Navbar
+
+-Servizi e Providers
+AuthService - gestisce autenticazione
+PostService - gestisce chiamate per i Post
+TokenInterceptor - aggiunge il token alle chiamate
+ErrorsInterceptor - contralle errore 401 per token non valido
+AuthGuard - per evitare la navigazione alla pagina profilo se non siamo loggati

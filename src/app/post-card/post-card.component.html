@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{post.title}}</h5>
+    <p>Likes: {{post.likes}}</p>
+    <a (click)="like()" *ngIf="logged" class="btn btn-primary">Like</a>
+    <a (click)="delete()" *ngIf="logged" class="btn btn-danger">Elimina</a>
+  </div>
+</div>

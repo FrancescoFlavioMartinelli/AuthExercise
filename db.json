@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "email": "test@test.test",
+      "password": "$2a$10$PV85VOLXp2qYoxpFpAPqeum9eF9dtMFEkYFJUZUQ7ghacwavbbrOm",
+      "name": "Test",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 0,
+      "title": "titolo1",
+      "likes": 9
+    }
+  ]
+}
