@@ -13,11 +13,21 @@
       "id": 2
     }
   ],
-  "posts": [
+  "todos": [
     {
       "id": 0,
+      "title": "titole1",
+      "active": true
+    },
+    {
+      "id": 1,
       "title": "titole2",
-      "likes": 23
+      "likes": false
+    },
+    {
+      "id": 2,
+      "title": "titole3",
+      "likes": true
     }
   ]
 }

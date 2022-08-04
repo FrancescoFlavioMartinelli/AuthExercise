@@ -7,6 +7,7 @@ import {
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {
   BehaviorSubject,
+  map,
   Subject
 } from 'rxjs';
 import {
@@ -30,7 +31,13 @@ export class AuthService {
   //OBSERVABLE AUTH
   authSub = new BehaviorSubject< false | AuthUser >(false);
   // authSub = new Subject<false|AuthUser>();
-  authObs = this.authSub.asObservable();
+  authObs = this.authSub.asObservable()
+  loggedObs = this.authObs.pipe(
+    map(e=>e?true:false)
+  );
+  // adminObs = this.authObs.pipe(
+  //   map(e=>{if(e){return e.id == 0? true:false} else {return false}})
+  // )
 
   constructor(private http: HttpClient) {
     this.authObs.subscribe((res) => {

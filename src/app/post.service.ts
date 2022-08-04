@@ -6,7 +6,10 @@ import {
 } from '@angular/core';
 import {
   BehaviorSubject,
-  Subject
+  map,
+  Subject,
+  take,
+  tap
 } from 'rxjs';
 import {
   Post
@@ -63,5 +66,36 @@ export class PostService {
       this.postSub.next(this.posts)
     })
   }
+
+
+
+
+
+
+
+  getAllPosts(){
+    return this.http.get<Post[]>(this.url).pipe(
+      tap((e)=>{
+        console.log("NEXT", e)
+        this.posts = e
+      })
+    )
+    // return fetch(this.url).then((res)=>{
+    //   return res.json()
+    // }).then((res)=>{
+    //   this.posts = res
+    //   return this.posts
+    // })
+  }
+
+  getPostById(id:number) {
+    return this.getAllPosts().pipe(
+      tap((e)=>{console.log(e)}),
+      map((e)=>{return e.filter((el)=>el.id == id)[0]})
+    )
+  }
+
+
+
 
 }
